@@ -96,13 +96,8 @@ struct QuoteCard: View {
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.primary)
             
-            Text("— " + quote.author)
-                .font(.subheadline)
-                .fontWeight(.medium)
-                .foregroundColor(.secondary)
-            
             HStack {
-                Text(quote.date.formatted(date: .abbreviated, time: .omitted))
+                Text(quote.author)
                     .font(.subheadline)
                     .foregroundColor(.secondary.opacity(0.5))
                 
@@ -173,7 +168,7 @@ struct ContentView: View {
                         Spacer()
                         
                         VStack(spacing: 32) {
-                            Text("Stay hungry. Stay foolish.")
+                            Text(todaysQuote.author)
                                 .font(.title3)
                                 .fontWeight(.medium)
                                 .foregroundColor(.secondary)
@@ -191,12 +186,8 @@ struct ContentView: View {
                                         .frame(maxWidth: .infinity)
                                         .frame(minHeight: 0, maxHeight: .infinity)
                                     
-                                    Text("— " + todaysQuote.author)
-                                        .font(.system(size: 18, weight: .medium))
-                                        .foregroundColor(.secondary)
-                                        .padding(.bottom, 20)
-                                    
                                     copyButton
+                                        .padding(.bottom, 4)
                                 }
                                 .frame(maxWidth: .infinity)
                                 .frame(height: UIScreen.main.bounds.height * 0.48)
@@ -447,7 +438,7 @@ struct ContentView: View {
 }
 
 // MARK: - Previews
-#Preview("Quote Card") {
+/*#Preview("Quote Card") {
     QuoteCard(quote: Quote.previewQuotes[0], isDarkMode: false)
         .padding()
 }
@@ -455,7 +446,7 @@ struct ContentView: View {
 #Preview("Theme Toggle") {
     ThemeToggle(isDarkMode: .constant(false))
         .padding()
-}
+}*/
 
 #Preview("Content View") {
     ContentView()
